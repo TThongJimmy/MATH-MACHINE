@@ -7,8 +7,8 @@
 */
 double D_round(double Dx, double Dy)
 {
-    /*小心数组越界，如果报错是在 “ near arry ” 这样就是数组越界*/
-    int arry[10] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000}; /*int类型 范围最大值：2147483647*/
+    /*小心数组越界，如果报错是在 “ near array ” 这样就是数组越界*/
+    int array[10] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000}; /*int类型 范围最大值：2147483647*/
 
     //这里还要判断一个边界，防止数据越界
     if(Dy > 0)
@@ -25,8 +25,8 @@ double D_round(double Dx, double Dy)
             */
             int Ix = Dx;
             int Iy = Dy;
-            //int b = arry[Iy-1];
-            int c = (Ix-(Ix%arry[Iy-2]))/arry[Iy-2];       /*例：31415926-(26)/100 = 31415900/100 = 314159  */
+            //int b = array[Iy-1];
+            int c = (Ix-(Ix%array[Iy-2]))/array[Iy-2];       /*例：31415926-(26)/100 = 31415900/100 = 314159  */
 
             /* 思路：
                     截取数字的时候截取到需要判断的那一位 （ 例：四舍五入到百位需要判断十位的大小，我就截取到十位）
@@ -35,7 +35,7 @@ double D_round(double Dx, double Dy)
             if(c%10 >=5)
                 c=(c+10)/10;
             
-            c = c*arry[Iy-1];
+            c = c*array[Iy-1];
 
             return c;
         }
@@ -43,8 +43,8 @@ double D_round(double Dx, double Dy)
         else if(Dy < 1)
         {
             int   Iy = Dy*10;
-            double b = arry[Iy];
-            int    d = Dx*arry[Iy+1];    /*这个步骤是要把多余的数直接截掉*/
+            double b = array[Iy];
+            int    d = Dx*array[Iy+1];    /*这个步骤是要把多余的数直接截掉*/
 
             if(d % 10 >= 5)     /*判断前一位数是否需要“五入”，“四舍”不需要变动就不需要管了*/
                 d=(d+10)/10;
