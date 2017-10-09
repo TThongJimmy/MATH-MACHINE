@@ -3,12 +3,12 @@
 /*
 
 */
-
-long int L_change(long int Lx)
+#include <stdio.h>
+long long LL_change(long long LLx)
 {
     /*数据界限判断(不成功)*/
     /*
-    if(Lx > 100000000)
+    if(LLx > 100000000)
     {
         printf("对不起，输入的数值只能为一亿以内的正整数‘1~100000000’");
         fprintf(stderr,"对不起，输入的数值只能为一亿以内的正整数‘1~100000000’");
@@ -16,31 +16,36 @@ long int L_change(long int Lx)
     }
     */
 
-    int array[2] = {10000, 100000000};
-    char DanWei[6] = {'个','十','百','千','万','亿'};
-    char Shu[10] = {'零','一','二','三','四','五','六','七','八','九'};
-    char jieguo[] = {0};
+    long long array[2] = {10000LL, 100000000LL};
+    char DanWei[6] = {'十','百','千','万','亿'};
+    wchar_t Shu[10] = {'零','一','二','三','四','五','六','七','八','九'};
+    char jieguo[50] = "";
 
     int i, j;
 
-    int wan = Lx/array[0];
-    int yi  = Lx/array[1];
+    int wan = LLx/array[0];
+    int yi  = LLx/array[1];
 
-    for(i=1; i>=0; i--)
+    s = 0;
+    if(wan>0) s=1;    /**/
+    if(yi >0) s=2;    /**/
+
+	switch(s)
     {
-        /*测试数据的长度，决定是否需要多次循环*/
-        if(Lx/array[1] > 0 )
-            i = 1;
-        else if(Lx/array[0] > 0)
-            i = 0;
-
-        /**/
-        
-
-
-        
-
+		case 2:
+        {
+            /*  失败
+            Y[1] = Shu[(wan/1000)%10];
+            printf("Y= ");
+            puts(Shu);
+            */
+            break;
+        }
+        case 1:break;
+        case 0:break;
     }
+
+    /*wprintf(L"%c%c  ----%d\n",Shu[7],Shu[8],(wan/1000)%10);*/
 
     return/**/;
 }
