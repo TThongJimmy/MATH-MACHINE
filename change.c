@@ -1,8 +1,8 @@
-/*æ•°å­—è½¬ä¸­æ–‡*/
+/*Êý×Ö×ªÖÐÎÄ*/
 
 /*
-    LLXç›´æŽ¥è¾“å…¥éœ€è¦è½¬æ¢çš„ä¸€äº¿ä»¥å†…çš„æ­£æ•´æ•°
-    ä¾‹å­ï¼š
+    LLXÖ±½ÓÊäÈëÐèÒª×ª»»µÄÒ»ÒÚÒÔÄÚµÄÕýÕûÊý
+    Àý×Ó£º
         MC_change(1234567)
         
     MC MathChinese
@@ -10,19 +10,19 @@
 
 long long MC_change(long long LLx)
 {
-    /*æ•°æ®ç•Œé™åˆ¤æ–­(ä¸æˆåŠŸ)*/
+    /*Êý¾Ý½çÏÞÅÐ¶Ï(²»³É¹¦)*/
     /*
     if(LLx > 100000000)
     {
-        printf("å¯¹ä¸èµ·ï¼Œè¾“å…¥çš„æ•°å€¼åªèƒ½ä¸ºä¸€äº¿ä»¥å†…çš„æ­£æ•´æ•°â€˜1~100000000â€™");
-        fprintf(stderr,"å¯¹ä¸èµ·ï¼Œè¾“å…¥çš„æ•°å€¼åªèƒ½ä¸ºä¸€äº¿ä»¥å†…çš„æ­£æ•´æ•°â€˜1~100000000â€™");
+        printf("¶Ô²»Æð£¬ÊäÈëµÄÊýÖµÖ»ÄÜÎªÒ»ÒÚÒÔÄÚµÄÕýÕûÊý¡®1~100000000¡¯");
+        fprintf(stderr,"¶Ô²»Æð£¬ÊäÈëµÄÊýÖµÖ»ÄÜÎªÒ»ÒÚÒÔÄÚµÄÕýÕûÊý¡®1~100000000¡¯");
         return 1;
     }
     */
 
     long long array[2] = {10000LL, 100000000LL};
-    char DanWei[][3] = {"åƒ","ç™¾","å","ä¸‡","äº¿"};
-    char Shu[][3] = {"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹"};
+    char DanWei[][3] = {"Ç§","°Ù","Ê®","Íò","ÒÚ"};
+    char Shu[][3] = {"Áã","Ò»","¶þ","Èý","ËÄ","Îå","Áù","Æß","°Ë","¾Å"};
     //char jieguo[50][3] = "";
 
     char gewei[10][2]  = {""};
@@ -36,19 +36,19 @@ long long MC_change(long long LLx)
     int yi  = LLx/array[1];
 
     /*
-        æ€è·¯ï¼š
-            å› ä¸ºæˆ‘ä»¬ä¸­å›½äººå¿µæ•°å­—ä¸åƒå¤–å›½ä¸€æ ·ä¸‰ä¸ªä¸‰ä¸ªä¸€ç»„ï¼Œæˆ‘ä»¬æ˜¯å››ä¸ªå››ä¸ªä¸€ç»„
-        (  ä¸€ä¸‡,   ä¸€ç™¾ä¸‡,       ä¸€äº¿,          åäº¿   )
+        Ë¼Â·£º
+            ÒòÎªÎÒÃÇÖÐ¹úÈËÄîÊý×Ö²»ÏñÍâ¹úÒ»ÑùÈý¸öÈý¸öÒ»×é£¬ÎÒÃÇÊÇËÄ¸öËÄ¸öÒ»×é
+        (  Ò»Íò,   Ò»°ÙÍò,       Ò»ÒÚ,          Ê®ÒÚ   )
           10000,  100 0000,  1 0000 0000,  10 0000 0000
 
-            æ‰€ä»¥æˆ‘ç”¨ â€œä¸‡â€ å’Œ â€œäº¿â€ï¼Œå°†æ•°åˆ†å¼€ï¼Œ â€œåƒâ€ å’Œ â€œç™¾â€ åœ¨æ¯ä¸ªéƒ¨åˆ†éƒ½ä¼šæœ‰
-        åˆ†å¼€åŽå…ˆæŒ‰é¡ºåºè¾“å‡º â€œäº¿ä½â€ çš„æ•°ï¼Œå†è¾“å‡º â€œä¸‡ä½â€ å’Œ â€œä¸ªä½â€
+            ËùÒÔÎÒÓÃ ¡°Íò¡± ºÍ ¡°ÒÚ¡±£¬½«Êý·Ö¿ª£¬ ¡°Ç§¡± ºÍ ¡°°Ù¡± ÔÚÃ¿¸ö²¿·Ö¶¼»áÓÐ
+        ·Ö¿ªºóÏÈ°´Ë³ÐòÊä³ö ¡°ÒÚÎ»¡± µÄÊý£¬ÔÙÊä³ö ¡°ÍòÎ»¡± ºÍ ¡°¸öÎ»¡±
     */
     s = 0;
     if(wan>0) s=1;    /**/
     if(yi >0) s=2;    /**/
 
-    /* switch åªæ˜¯é€‰æ‹©ä»Žå“ªå¼€å§‹æ‰§è¡Œï¼Œæ‰§è¡Œå®Œä¸€ä¸ª case ä¼šæŽ¥ç€ä¸‹ä¸€ä¸ª*/
+    /* switch Ö»ÊÇÑ¡Ôñ´ÓÄÄ¿ªÊ¼Ö´ÐÐ£¬Ö´ÐÐÍêÒ»¸ö case »á½Ó×ÅÏÂÒ»¸ö*/
 	switch(s)
     {
 		case 2:
@@ -56,13 +56,13 @@ long long MC_change(long long LLx)
             for(i=0; i<=1; i++)
             {
                 yiwei[0][i] = Shu[(yi/1000)%10][i];
-                yiwei[1][i] = DanWei[0][i];            /*åƒ*/
+                yiwei[1][i] = DanWei[0][i];            /*Ç§*/
 
                 yiwei[2][i] = Shu[(yi/100)%10][i];
-                yiwei[3][i] = DanWei[1][i];            /*ç™¾*/
+                yiwei[3][i] = DanWei[1][i];            /*°Ù*/
 
                 yiwei[4][i] = Shu[(yi/10)%10][i];
-                yiwei[5][i] = DanWei[2][i];            /*å*/
+                yiwei[5][i] = DanWei[2][i];            /*Ê®*/
 
                 yiwei[6][i] = Shu[(yi/1)%10][i];
             }
@@ -71,7 +71,7 @@ long long MC_change(long long LLx)
             {
                 printf("%c%c",yiwei[i][0],yiwei[i][1]);
             }
-            printf("%c%c",DanWei[4][0],DanWei[4][1]);   /*è¾“å‡º â€œäº¿â€ è¿™ä¸ªå­—*/
+            printf("%c%c",DanWei[4][0],DanWei[4][1]);   /*Êä³ö ¡°ÒÚ¡± Õâ¸ö×Ö*/
         }
 
         case 1:
@@ -79,13 +79,13 @@ long long MC_change(long long LLx)
             for(i=0; i<=1; i++)
             {
                 wanwei[0][i] = Shu[(wan/1000)%10][i];
-                wanwei[1][i] = DanWei[0][i];            /*åƒ*/
+                wanwei[1][i] = DanWei[0][i];            /*Ç§*/
 
                 wanwei[2][i] = Shu[(wan/100)%10][i];
-                wanwei[3][i] = DanWei[1][i];            /*ç™¾*/
+                wanwei[3][i] = DanWei[1][i];            /*°Ù*/
 
                 wanwei[4][i] = Shu[(wan/10)%10][i];
-                wanwei[5][i] = DanWei[2][i];            /*å*/
+                wanwei[5][i] = DanWei[2][i];            /*Ê®*/
 
                 wanwei[6][i] = Shu[(wan/1)%10][i];
             }
@@ -93,7 +93,7 @@ long long MC_change(long long LLx)
             {
                 printf("%c%c",wanwei[i][0],wanwei[i][1]);
             }
-            printf("%c%c",DanWei[3][0],DanWei[3][1]);   /*è¾“å‡º â€œä¸‡â€ è¿™ä¸ªå­—*/
+            printf("%c%c",DanWei[3][0],DanWei[3][1]);   /*Êä³ö ¡°Íò¡± Õâ¸ö×Ö*/
         }
 
         case 0:
@@ -101,13 +101,13 @@ long long MC_change(long long LLx)
             for(i=0; i<=1; i++)
             {
                 gewei[0][i] = Shu[(ge/1000)%10][i];
-                gewei[1][i] = DanWei[0][i];            /*åƒ*/
+                gewei[1][i] = DanWei[0][i];            /*Ç§*/
 
                 gewei[2][i] = Shu[(ge/100)%10][i];
-                gewei[3][i] = DanWei[1][i];            /*ç™¾*/
+                gewei[3][i] = DanWei[1][i];            /*°Ù*/
 
                 gewei[4][i] = Shu[(ge/10)%10][i];
-                gewei[5][i] = DanWei[2][i];            /*å*/
+                gewei[5][i] = DanWei[2][i];            /*Ê®*/
 
                 gewei[6][i] = Shu[(ge/1)%10][i];
             }
@@ -115,7 +115,7 @@ long long MC_change(long long LLx)
             {
                 printf("%c%c",gewei[i][0],gewei[i][1]);
             }
-            /*ä¸ªä½ä¸éœ€è¦è¾“å‡ºå•ä½,ä½†æ˜¯éœ€è¦æ¢è¡Œ*/
+            /*¸öÎ»²»ÐèÒªÊä³öµ¥Î»,µ«ÊÇÐèÒª»»ÐÐ*/
             printf("\n");
         }
     }
