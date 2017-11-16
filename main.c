@@ -84,24 +84,30 @@ int function()
 /*ÏêÏ¸²Î¼û round.h*/
 double D_round(double Dx, double Dy)
 {
-    int array[10] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+    long long array[11] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000};
     if(Dy > 0)
     {
-        if(Dy >= 1)
+        if (Dy == 1)
+        {
+            int Ix = (int)(Dx + 0.5); 
+            return Ix;
+        }
+        else if(Dy > 1)
         {
             int Ix = Dx;
             int Iy = Dy;
             int c = (Ix-(Ix%array[Iy-2]))/array[Iy-2];
             if(c%10 >=5)
                 c=(c+10)/10;
+        
             c = c*array[Iy-1];
             return c;
         }
         else if(Dy < 1)
         {
-            int   Iy = Dy*10;
-            double b = array[Iy];
-            int    d = Dx*array[Iy+1];
+            int         Iy = (int)(Dy*10);
+            double      b = array[Iy];
+            long long   d = (long long)(Dx*array[Iy+1]);
             if(d % 10 >= 5)
                 d=(d+10)/10;
             double c = d/b;

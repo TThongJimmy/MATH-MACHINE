@@ -1,27 +1,47 @@
 #include <stdio.h>
 
-/* å››èˆäº”å…¥ */
-/*è¯¦ç»†å‚è§ round.h*/
+/* ËÄÉáÎåÈë */
+/*ÏêÏ¸²Î¼û round.h*/
+/* ËÄÉáÎåÈë */
+
+/*
+    FxÎªĞèÒªËÄÉáÎåÈëµÄÊı£¬FyÎªĞèÒªËÄÉáÎåÈëµ½Ğ¡ÊıµãÇ°ºó¼¸Î»
+    Àı: F_round(3.1415926,0.3);  ÒâË¼Îª£º½«¡°3.1415926¡±ËÄÉáÎåÈëµ½Ğ¡Êıµãºó3Î»
+        F_round(3141592.6,3.0);  ÒâË¼Îª£º½«¡°3141592.6¡±ËÄÉáÎåÈëµ½Ğ¡ÊıµãÇ°3Î»
+*/
+
+/*
+    bug!!!
+        Ğ¡ÊıµãºóÖ»ÄÜµ½6Î»
+        Ô­Òò£ºÔİÊ±Î´Öª
+            2019/10/29
+*/
 double D_round(double Dx, double Dy)
 {
-    int array[10] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+    long long array[11] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000};
     if(Dy > 0)
     {
-        if(Dy >= 1)
+        if (Dy == 1)
+        {
+            int Ix = (int)(Dx + 0.5); 
+            return Ix;
+        }
+        else if(Dy > 1)
         {
             int Ix = Dx;
             int Iy = Dy;
             int c = (Ix-(Ix%array[Iy-2]))/array[Iy-2];
             if(c%10 >=5)
                 c=(c+10)/10;
+        
             c = c*array[Iy-1];
             return c;
         }
         else if(Dy < 1)
         {
-            int   Iy = Dy*10;
-            double b = array[Iy];
-            int    d = Dx*array[Iy+1];
+            int         Iy = (int)(Dy*10);
+            double      b = array[Iy];
+            long long   d = (long long)(Dx*array[Iy+1]);
             if(d % 10 >= 5)
                 d=(d+10)/10;
             double c = d/b;
@@ -30,13 +50,14 @@ double D_round(double Dx, double Dy)
     }
 }
 
-/*æ•°å­—è½¬ä¸­æ–‡*/
-/*è¯¦ç»†è¯·è§ change.c*/
+
+/*Êı×Ö×ªÖĞÎÄ*/
+/*ÏêÏ¸Çë¼û change.c*/
 long long MC_change(long long LLx)
 {
     long long array[2] = {10000LL, 100000000LL};
-    char DanWei[][3] = {"åƒ","ç™¾","å","ä¸‡","äº¿"};
-    char Shu[][3] = {"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹"};
+    char DanWei[][3] = {"Ç§","°Ù","Ê®","Íò","ÒÚ"};
+    char Shu[][3] = {"Áã","Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å"};
     char gewei[10][2]  = {""};
     char yiwei[10][2]  = {""};
     char wanwei[10][2] = {""};
